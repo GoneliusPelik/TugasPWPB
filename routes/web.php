@@ -5,4 +5,8 @@ Route::get('/', function () {
  return view('home');
 });
 // [2] Jika ada yang akses URL /dashboard, arahkan ke EventController bagian index
-Route::get('/dashboard', [CategoryController::class, 'index']); 
+Route::get('/dashboard', [CategoryController::class, 'index']);
+
+Route::get('/dashboard/category/create', [CategoryController::class, 'create']);
+
+Route::post('/dashboard/category/store', [CategoryController::class, 'store']);
