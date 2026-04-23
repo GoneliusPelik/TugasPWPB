@@ -17,11 +17,17 @@
  <div class="d-flex justify-content-between align-items-center mb-3">
  <h5 class="text-primary fw-bold mb-0">Daftar Kategori Acara</h5>
 
- {{-- PINTU MASUK: Tombol Tambah Data --}}
- <a href="/dashboard/category/create" class="btn btn-success fw-bold shadowsm">
+ <div> {{-- Kotak pembungkus agar tombol berjejer --}}
+ <a href="/dashboard/category/create" class="btn btn-success btn-sm shadow-sm me-2">
  + Tambah Kategori Baru
  </a>
+
+ {{-- [TAMBAHAN] Pintu Masuk Baru untuk Acara --}}
+ <a href="/event/create" class="btn btn-primary btn-sm shadow-sm">
+ + Tambah Acara Baru
+ </a>
  </div>
+</div>
  <div class="table-responsive">
  <table class="table table-hover table-bordered align-middle mb-0">
  <thead class="table-dark text-center">
@@ -41,6 +47,14 @@
 $category->slug }}</span></td>
  <td class="text-center">{{ date('d M Y', strtotime($category->created_at))
 }}</td>
+<td class="text-center">
+ <a href="/kategori/{{ $category->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+ <form action="/kategori/{{ $category->id }}" method="POST" class="d-inline"
+onsubmit="return confirm('Apakah Anda yakin ingin menghapus kategori ini secara permanen?');">
+ @csrf
+ @method('DELETE') <button type="submit" class="btn btn-danger btnsm">Hapus</button>
+ </form>
+</td>
  </tr>
  @empty
  <tr>
