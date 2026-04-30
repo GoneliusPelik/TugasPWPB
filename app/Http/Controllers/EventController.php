@@ -6,6 +6,11 @@ use App\Models\Category; // Wajib dipanggil untuk Select Dropdown
 use Illuminate\Http\Request;
 class EventController extends Controller
 {
+    public function index()
+    {
+        $events = Event::with('category')->latest()->get(); // Ambil data Event beserta relasi Category
+        return view('event_index', compact('events'));
+    }
  public function create()
  {
  // Ambil semua daftar kategori dari database

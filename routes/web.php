@@ -22,3 +22,4 @@ Route::delete('/kategori/{category}', [CategoryController::class, 'destroy']);
 
 Route::get('/event/create', [EventController::class, 'create']);
 Route::post('/event/store', [EventController::class, 'store']);
+Route::get('/events', [EventController::class, 'index']);
