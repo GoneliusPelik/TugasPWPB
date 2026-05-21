@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    protected $guarded = [];
+    protected $fillable = [ 
+        'category_id', 'title', 'event_date', 'location', 'quota', 'description', 'poster' 
+    ]; 
     
     // [TAMBAHKAN INI] Satu acara dimiliki oleh satu kategori
     public function category()

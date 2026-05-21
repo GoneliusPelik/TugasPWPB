@@ -23,3 +23,9 @@ Route::delete('/kategori/{category}', [CategoryController::class, 'destroy']);
 Route::get('/event/create', [EventController::class, 'create']);
 Route::post('/event/store', [EventController::class, 'store']);
 Route::get('/events', [EventController::class, 'index']);
+
+// newest pertemuan 9
+
+Route::get('/event/{event}/edit', [EventController::class, 'edit']); 
+Route::put('/event/{event}', [EventController::class, 'update']); 
+Route::delete('/event/{event}', [EventController::class, 'destroy']); 
