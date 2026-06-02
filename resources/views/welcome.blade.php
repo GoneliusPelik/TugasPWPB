@@ -47,7 +47,7 @@
 
                             {{-- Tombol Detail didorong ke posisi paling bawah --}}
                             <div class="mt-auto">
-                                <a href="#" class="btn btn-outline-primary w-100 fw-bold shadow-sm">Lihat Detail Acara</a>
+                                <a href="/event/{{ $event->id }}" class="btn btn-primary w-100 fw-bold shadow-sm">Lihat Detail Acara</a>
                             </div>
                         </div>
                     </div>

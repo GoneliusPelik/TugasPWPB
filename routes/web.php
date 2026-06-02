@@ -1,48 +1,70 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\FrontEndController; // <-- [BARU] Import Resepsionis Halaman Depan
+use App\Http\Controllers\FrontEndController;
 
 /*
 |--------------------------------------------------------------------------
 | JALUR PUBLIK (FRONT-END)
 |--------------------------------------------------------------------------
 | Jalur ini bisa diakses oleh siapa saja tanpa perlu login.
-| Ibarat pintu gerbang utama sekolah yang terbuka untuk tamu.
 */
 
-// Jalur Utama: Mengarahkan pengunjung ke halaman katalog acara (Landing Page)
+// Halaman katalog acara (Landing Page)
 Route::get('/', [FrontEndController::class, 'index']);
+
+/*
+|--------------------------------------------------------------------------
+| JALUR AUTENTIKASI
+|--------------------------------------------------------------------------
+| Untuk Login, Register, dan Logout.
+*/
+
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 /*
 |--------------------------------------------------------------------------
 | JALUR ADMINISTRASI (BACK-END / DASHBOARD)
 |--------------------------------------------------------------------------
-| Jalur ini digunakan oleh Panitia/Admin untuk mengelola data (CRUD).
-| Ibarat ruang kantor atau gudang yang hanya boleh dimasuki petugas.
+| Dilindungi oleh Middleware Auth — hanya bisa diakses oleh pengguna Login.
+| Tamu yang paksa akses URL ini akan otomatis diarahkan ke halaman Login.
 */
 
-// [1] Halaman Utama Dashboard (Panel Admin)
-Route::get('/dashboard', [CategoryController::class, 'index']);
+Route::middleware('auth')->group(function () {
 
-Route::get('/dashboard/category/create', [CategoryController::class, 'create']);
+    // [1] Halaman Utama Dashboard (Panel Admin)
+    Route::get('/dashboard', [CategoryController::class, 'index']);
 
-Route::post('/dashboard/category/store', [CategoryController::class, 'store']);
+    // [2] Manajemen Kategori
+    Route::get('/dashboard/category/create', [CategoryController::class, 'create']);
+    Route::post('/dashboard/category/store', [CategoryController::class, 'store']);
+    Route::get('/kategori/{category}/edit', [CategoryController::class, 'edit']);
+    Route::put('/kategori/{category}', [CategoryController::class, 'update']);
+    Route::delete('/kategori/{category}', [CategoryController::class, 'destroy']);
 
-// Jalur untuk membuka Halaman Form Edit
-Route::get('/kategori/{category}/edit', [CategoryController::class, 'edit']);
-// Jalur untuk memproses penyimpanan data yang di-edit (Perhatikan method PUT)
-Route::put('/kategori/{category}', [CategoryController::class, 'update']);
-// Jalur untuk memproses penghapusan data (Perhatikan method DELETE)
-Route::delete('/kategori/{category}', [CategoryController::class, 'destroy']);
+    // [3] Manajemen Acara — rute /event/create HARUS didaftarkan sebelum /event/{id}
+    Route::get('/event/create', [EventController::class, 'create']);
+    Route::post('/event/store', [EventController::class, 'store']);
+    Route::get('/events', [EventController::class, 'index']);
+    Route::get('/event/{event}/edit', [EventController::class, 'edit']);
+    Route::put('/event/{event}', [EventController::class, 'update']);
+    Route::delete('/event/{event}', [EventController::class, 'destroy']);
+});
 
-Route::get('/event/create', [EventController::class, 'create']);
-Route::post('/event/store', [EventController::class, 'store']);
-Route::get('/events', [EventController::class, 'index']);
+/*
+|--------------------------------------------------------------------------
+| JALUR DETAIL ACARA (PUBLIK)
+|--------------------------------------------------------------------------
+| Didefinisikan SETELAH rute /event/create agar tidak bentrok dengan {id}.
+*/
 
-// newest pertemuan 9
-
-Route::get('/event/{event}/edit', [EventController::class, 'edit']); 
-Route::put('/event/{event}', [EventController::class, 'update']); 
-Route::delete('/event/{event}', [EventController::class, 'destroy']); 
+Route::get('/event/{id}', [FrontEndController::class, 'show'])->name('event.show');
