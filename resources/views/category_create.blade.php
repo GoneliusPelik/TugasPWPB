@@ -16,8 +16,7 @@
                     </div>
                     <div class="mb-3">
                         <label>URL Slug</label>
-                        <input type="text" name="slug" class="form-control @error('slug') is-invalid
-@enderror">
+                        <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror">
                         @error('slug')
                             <div class="text-danger small">{{ $message }}</div>
                         @enderror
