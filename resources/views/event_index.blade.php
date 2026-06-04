@@ -100,7 +100,7 @@
                             <td class="px-5 py-4">
                                 @if($event->poster)
                                 <div class="w-14 h-14 rounded-xl overflow-hidden border border-gray-100 shadow-sm">
-                                    <img src="{{ asset('storage/' . $event->poster) }}" alt="{{ $event->title }}" class="w-full h-full object-cover">
+                                    <img src="/storage/{{ $event->poster }}" alt="{{ $event->title }}" class="w-full h-full object-cover">
                                 </div>
                                 @else
                                 <div class="w-14 h-14 rounded-xl bg-primary-50 border border-primary-100 flex items-center justify-center">

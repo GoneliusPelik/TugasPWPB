@@ -39,7 +39,7 @@
                 <div class="sticky top-24">
                     <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
                         @if($event->poster)
-                            <img src="{{ asset('storage/' . $event->poster) }}" alt="{{ $event->title }}" class="w-full h-auto object-cover">
+                            <img src="/storage/{{ $event->poster }}" alt="{{ $event->title }}" class="w-full h-auto">
                         @else
                             <div class="aspect-[3/4] bg-gradient-to-br from-primary-50 to-primary-100 flex flex-col items-center justify-center gap-3">
                                 <div class="w-20 h-20 rounded-2xl bg-white/70 flex items-center justify-center">

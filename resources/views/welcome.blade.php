@@ -163,7 +163,7 @@
                 {{-- Poster --}}
                 <div class="overflow-hidden h-[200px] bg-gradient-to-br from-primary-50 to-primary-100">
                     @if($event->poster)
-                        <img src="{{ asset('storage/' . $event->poster) }}" alt="{{ $event->title }}"
+                        <img src="/storage/{{ $event->poster }}" alt="{{ $event->title }}"
                              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     @else
                         <div class="w-full h-full flex flex-col items-center justify-center gap-2">

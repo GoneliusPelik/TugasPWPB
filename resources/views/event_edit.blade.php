@@ -115,7 +115,7 @@
                             {{-- Current or new preview --}}
                             <div class="mb-4">
                                 @if($event->poster)
-                                <img x-show="!previewUrl" src="{{ asset('storage/' . $event->poster) }}"
+                                <img x-show="!previewUrl" src="/storage/{{ $event->poster }}"
                                      class="w-full rounded-xl border border-gray-100 object-cover shadow-sm" style="max-height:200px;">
                                 @else
                                 <div x-show="!previewUrl" class="h-32 rounded-xl border-2 border-dashed border-gray-200 bg-gray-50 flex flex-col items-center justify-center gap-2 text-gray-300">
