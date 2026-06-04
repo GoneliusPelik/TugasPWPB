@@ -1,100 +1,94 @@
 @extends('layouts.app')
-
 @section('title', 'Beranda')
-
 @section('content')
-<div class="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-100 via-primary-50 to-white">
-    <!-- Animated Background Elements -->
-    <div class="absolute inset-0">
-        <!-- Floating Circles -->
-        <div class="absolute top-20 left-10 w-64 h-64 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"></div>
-        <div class="absolute bottom-20 right-10 w-80 h-80 bg-primary-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float-delayed"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float-slow"></div>
 
-        <!-- Grid Pattern Overlay -->
-        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle, #0ea5e9 1px, transparent 1px); background-size: 40px 40px;"></div>
+<div class="relative min-h-[88vh] overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 flex items-center">
+
+    {{-- Background --}}
+    <div class="absolute inset-0 dot-grid opacity-[0.12]"></div>
+    <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary-500 opacity-20 blur-3xl"></div>
+    <div class="absolute -bottom-48 -left-16 w-[450px] h-[450px] rounded-full bg-primary-400 opacity-15 blur-3xl"></div>
+
+    {{-- Ring decorations --}}
+    <div class="absolute right-[-80px] top-1/2 -translate-y-1/2">
+        <div class="w-[500px] h-[500px] rounded-full border border-primary-600/30"></div>
+        <div class="absolute inset-16 rounded-full border border-primary-500/20"></div>
     </div>
 
-    <!-- Content -->
-    <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
-        <!-- Icon -->
-        <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white shadow-xl shadow-primary-500/10 mb-8 animate-hero-in">
-            <svg class="w-10 h-10 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-            </svg>
-        </div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
 
-        <!-- Title -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight animate-hero-in" style="animation-delay: 0.1s;">
-            Selamat Datang!
-        </h1>
+            {{-- Left: Welcome content --}}
+            <div class="lg:col-span-3">
+                {{-- Badge --}}
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-700/60 border border-primary-600/40 backdrop-blur-sm mb-8 anim-up">
+                    <svg class="w-4 h-4 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    <span class="text-primary-200 text-xs font-bold uppercase tracking-widest">Login sebagai Administrator</span>
+                </div>
 
-        <!-- Subtitle -->
-        <p class="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed max-w-xl mx-auto animate-hero-in" style="animation-delay: 0.2s;">
-            Sistem Pendaftaran Event Resmi SMK Plus Pelita Nusantara.
-        </p>
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-none tracking-tight anim-up delay-100">
+                    Selamat<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-200 to-primary-400">Datang!</span>
+                </h1>
 
-        <!-- Divider -->
-        <div class="flex justify-center items-center gap-3 mt-8 animate-hero-in" style="animation-delay: 0.3s;">
-            <span class="h-px w-16 bg-gradient-to-r from-transparent to-primary-300"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-primary-400 ring-4 ring-primary-100"></span>
-            <span class="h-px w-16 bg-gradient-to-l from-transparent to-primary-300"></span>
-        </div>
+                <p class="mt-6 text-lg text-primary-100/80 leading-relaxed max-w-lg anim-up delay-200">
+                    Sistem pengelolaan acara dan kegiatan resmi <strong class="text-white font-semibold">SMK Plus Pelita Nusantara</strong>. Anda dapat menambah, mengedit, dan menghapus acara dari sini.
+                </p>
 
-        <!-- CTA Button -->
-        <div class="mt-10 animate-hero-in" style="animation-delay: 0.4s;">
-            <a href="/dashboard" class="group inline-flex items-center gap-3 px-8 py-4 bg-primary-500 text-white font-semibold rounded-2xl shadow-xl shadow-primary-500/30 hover:bg-primary-600 hover:shadow-2xl hover:shadow-primary-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300">
-                <span>Masuk Dashboard</span>
-                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-            </a>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400 animate-hero-in" style="animation-delay: 0.5s;">
-            <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                </svg>
-                <span>Aman & Terpercaya</span>
+                {{-- CTA Buttons --}}
+                <div class="mt-10 flex flex-wrap gap-4 anim-up delay-300">
+                    <a href="/dashboard" class="inline-flex items-center gap-2.5 px-7 py-4 rounded-2xl bg-white text-primary-700 font-bold text-sm hover:bg-primary-50 shadow-xl shadow-primary-900/30 transition-all duration-200 hover:-translate-y-0.5">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                        Buka Panel Admin
+                    </a>
+                    <a href="/event/create" class="inline-flex items-center gap-2.5 px-7 py-4 rounded-2xl bg-primary-600/40 border border-primary-500/50 text-white font-bold text-sm hover:bg-primary-600/60 backdrop-blur-sm transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                        Tambah Acara
+                    </a>
+                </div>
             </div>
-            <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-                <span>Cepat & Mudah</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span>Real-time</span>
+
+            {{-- Right: Quick actions --}}
+            <div class="lg:col-span-2 grid grid-cols-2 gap-4 anim-up delay-400">
+                <a href="/dashboard" class="group bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 hover:bg-white/20 transition-all duration-200 hover:-translate-y-1">
+                    <div class="w-10 h-10 rounded-xl bg-primary-500/50 flex items-center justify-center mb-3">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+                    </div>
+                    <p class="text-white font-bold text-sm">Kategori</p>
+                    <p class="text-primary-300 text-xs mt-0.5">Kelola kategori</p>
+                </a>
+                <a href="/events" class="group bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 hover:bg-white/20 transition-all duration-200 hover:-translate-y-1">
+                    <div class="w-10 h-10 rounded-xl bg-primary-500/50 flex items-center justify-center mb-3">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    </div>
+                    <p class="text-white font-bold text-sm">Semua Acara</p>
+                    <p class="text-primary-300 text-xs mt-0.5">Daftar acara</p>
+                </a>
+                <a href="/event/create" class="group bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 hover:bg-white/20 transition-all duration-200 hover:-translate-y-1">
+                    <div class="w-10 h-10 rounded-xl bg-primary-500/50 flex items-center justify-center mb-3">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    </div>
+                    <p class="text-white font-bold text-sm">Tambah Acara</p>
+                    <p class="text-primary-300 text-xs mt-0.5">Buat baru</p>
+                </a>
+                <a href="/" class="group bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 hover:bg-white/20 transition-all duration-200 hover:-translate-y-1">
+                    <div class="w-10 h-10 rounded-xl bg-primary-500/50 flex items-center justify-center mb-3">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    </div>
+                    <p class="text-white font-bold text-sm">Publik</p>
+                    <p class="text-primary-300 text-xs mt-0.5">Lihat katalog</p>
+                </a>
             </div>
         </div>
+    </div>
+
+    {{-- Bottom wave --}}
+    <div class="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 80" fill="none" class="w-full" preserveAspectRatio="none">
+            <path d="M0 80L480 50L960 65L1440 35V80H0Z" fill="white" opacity="0.05"/>
+            <path d="M0 80L360 55L720 70L1080 40L1440 60V80H0Z" fill="white"/>
+        </svg>
     </div>
 </div>
 
-<style>
-    @keyframes float {
-        0%, 100% { transform: translateY(0) rotate(0deg); }
-        50% { transform: translateY(-20px) rotate(3deg); }
-    }
-    @keyframes float-delayed {
-        0%, 100% { transform: translateY(0) rotate(0deg); }
-        50% { transform: translateY(-30px) rotate(-3deg); }
-    }
-    @keyframes float-slow {
-        0%, 100% { transform: translate(-50%, -50%) scale(1); }
-        50% { transform: translate(-50%, -50%) scale(1.1); }
-    }
-    @keyframes hero-in {
-        from { opacity: 0; transform: translateY(24px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-float { animation: float 6s ease-in-out infinite; }
-    .animate-float-delayed { animation: float-delayed 8s ease-in-out infinite; }
-    .animate-float-slow { animation: float-slow 10s ease-in-out infinite; }
-    .animate-hero-in { animation: hero-in 0.7s ease-out forwards; opacity: 0; }
-</style>
 @endsection

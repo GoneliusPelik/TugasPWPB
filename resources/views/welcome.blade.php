@@ -1,152 +1,256 @@
 @extends('layouts.app')
-
+@section('title', 'Beranda')
 @section('content')
-<!-- Hero Section -->
-<div class="relative overflow-hidden bg-gradient-to-br from-primary-100 via-primary-50 to-white">
-    <!-- Animated Background Blobs -->
-    <div class="absolute top-0 left-0 w-72 h-72 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
-    <div class="absolute top-0 right-0 w-72 h-72 bg-primary-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-    <div class="absolute bottom-0 left-1/2 w-72 h-72 bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-4000"></div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 text-center">
-        <!-- Floating Badge -->
-        <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-primary-200 rounded-full px-5 py-2 mb-8 shadow-sm animate-fade-in-up">
-            <span class="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></span>
-            <span class="text-sm font-medium text-primary-700">Platform Informasi Sekolah</span>
-        </div>
+{{-- ======== HERO SECTION ======== --}}
+<section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 min-h-[92vh] flex items-center">
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight animate-fade-in-up" style="animation-delay: 0.1s;">
-            Selamat Datang di
-            <span class="block mt-2 bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">SchoolEvent</span>
-        </h1>
+    {{-- Dot grid background --}}
+    <div class="absolute inset-0 dot-grid opacity-[0.12]"></div>
 
-        <p class="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-gray-500 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
-            Papan Informasi Acara dan Kegiatan Resmi Sekolah
-        </p>
+    {{-- Decorative blobs --}}
+    <div class="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary-500 opacity-20 blur-3xl"></div>
+    <div class="absolute -bottom-60 -left-20 w-[400px] h-[400px] rounded-full bg-primary-400 opacity-15 blur-3xl"></div>
 
-        <!-- Decorative Dots -->
-        <div class="flex justify-center gap-1.5 mt-10 animate-fade-in-up" style="animation-delay: 0.3s;">
-            <span class="w-1.5 h-1.5 rounded-full bg-primary-300"></span>
-            <span class="w-1.5 h-1.5 rounded-full bg-primary-400"></span>
-            <span class="w-1.5 h-1.5 rounded-full bg-primary-500"></span>
-            <span class="w-1.5 h-1.5 rounded-full bg-primary-400"></span>
-            <span class="w-1.5 h-1.5 rounded-full bg-primary-300"></span>
-        </div>
+    {{-- Large decorative circle rings --}}
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3">
+        <div class="w-[600px] h-[600px] rounded-full border border-primary-600/40"></div>
+        <div class="absolute inset-10 rounded-full border border-primary-500/30"></div>
+        <div class="absolute inset-24 rounded-full border border-primary-400/20"></div>
     </div>
 
-    <!-- Wave Divider -->
-    <div class="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
-            <path d="M0 60L48 55C96 50 192 40 288 35C384 30 480 30 576 33.3C672 36.7 768 43.3 864 45C960 46.7 1056 43.3 1152 38.3C1248 33.3 1344 26.7 1392 23.3L1440 20V60H1392C1344 60 1248 60 1152 60C1056 60 960 60 864 60C768 60 672 60 576 60C480 60 384 60 288 60C192 60 96 60 48 60H0Z" fill="white"/>
-        </svg>
-    </div>
-</div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-<!-- Event Catalog Section -->
-<div class="bg-white py-16 sm:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section Header -->
-        <div class="text-center mb-14">
-            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Katalog Acara Terbaru</h2>
-            <div class="mt-4 flex items-center justify-center gap-3">
-                <span class="h-px w-12 bg-primary-300"></span>
-                <span class="w-2 h-2 rounded-full bg-primary-500"></span>
-                <span class="h-px w-12 bg-primary-300"></span>
-            </div>
-            <p class="mt-4 text-gray-500 max-w-xl mx-auto">Temukan berbagai acara dan kegiatan menarik yang diselenggarakan oleh sekolah.</p>
-        </div>
+            {{-- Left: Text content --}}
+            <div>
+                {{-- Tag --}}
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-700/60 border border-primary-600/40 backdrop-blur-sm mb-8 anim-up">
+                    <span class="w-1.5 h-1.5 rounded-full bg-primary-300 animate-pulse"></span>
+                    <span class="text-primary-200 text-xs font-bold uppercase tracking-widest">Platform Informasi Sekolah</span>
+                </div>
 
-        <!-- Event Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            @forelse($events as $event)
-            <div class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
-                <!-- Poster -->
-                <div class="relative overflow-hidden">
-                    @if($event->poster)
-                    <img src="{{ asset('storage/' . $event->poster) }}" alt="{{ $event->title }}" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
-                    @else
-                    <div class="w-full h-52 bg-gradient-to-br from-primary-50 to-primary-100 flex flex-col items-center justify-center gap-2">
-                        <svg class="w-12 h-12 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                        </svg>
-                        <span class="text-sm font-medium text-primary-400">Tanpa Poster</span>
+                {{-- Headline --}}
+                <h1 class="text-[3.5rem] sm:text-[4.5rem] lg:text-[5.5rem] font-black text-white leading-none tracking-tight anim-up delay-100">
+                    School<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-200 to-primary-400">Event</span>
+                </h1>
+
+                <p class="mt-6 text-lg text-primary-100/80 leading-relaxed max-w-md anim-up delay-200">
+                    Papan informasi acara dan kegiatan resmi <strong class="text-white font-semibold">SMK Plus Pelita Nusantara</strong>. Temukan semua acara dalam satu tempat.
+                </p>
+
+                {{-- CTA --}}
+                <div class="mt-10 flex flex-wrap gap-4 anim-up delay-300">
+                    <a href="#events" class="inline-flex items-center gap-2.5 px-7 py-4 rounded-2xl bg-white text-primary-700 font-bold text-sm hover:bg-primary-50 shadow-xl shadow-primary-900/30 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        Lihat Semua Acara
+                    </a>
+                    @guest
+                    <a href="/register" class="inline-flex items-center gap-2.5 px-7 py-4 rounded-2xl bg-primary-600/40 border border-primary-500/50 text-white font-bold text-sm hover:bg-primary-600/60 backdrop-blur-sm transition-all duration-200">
+                        Daftar Gratis
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    @endguest
+                </div>
+
+                {{-- Stats --}}
+                <div class="mt-14 flex items-center gap-8 anim-up delay-400">
+                    <div>
+                        <p class="text-4xl font-black text-white">{{ $events->count() }}</p>
+                        <p class="text-xs text-primary-300 mt-0.5 font-semibold uppercase tracking-wide">Acara Aktif</p>
                     </div>
-                    @endif
-                    <!-- Category Badge -->
-                    <div class="absolute top-3 left-3">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/90 backdrop-blur-sm text-primary-700 shadow-sm border border-primary-100">
-                            {{ $event->category->name }}
-                        </span>
+                    <div class="w-px h-10 bg-primary-600"></div>
+                    <div>
+                        <p class="text-4xl font-black text-white">2026</p>
+                        <p class="text-xs text-primary-300 mt-0.5 font-semibold uppercase tracking-wide">Tahun Berjalan</p>
+                    </div>
+                    <div class="w-px h-10 bg-primary-600"></div>
+                    <div>
+                        <p class="text-4xl font-black text-white">SMK<span class="text-primary-300">+</span></p>
+                        <p class="text-xs text-primary-300 mt-0.5 font-semibold uppercase tracking-wide">Pelita Nusantara</p>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Right: Floating feature cards --}}
+            <div class="hidden lg:flex items-center justify-center relative h-[460px]">
+
+                {{-- Center logo circle --}}
+                <div class="absolute w-32 h-32 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center z-10">
+                    <div class="w-20 h-20 rounded-2xl bg-primary-500 flex items-center justify-center shadow-xl shadow-primary-900/50">
+                        <span class="text-white font-black text-3xl select-none">S</span>
                     </div>
                 </div>
 
-                <!-- Content -->
-                <div class="p-5 sm:p-6">
-                    <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary-600 transition-colors duration-200 line-clamp-2">
+                {{-- Floating cards --}}
+                <div class="absolute top-[30px] left-[100px] anim-float">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 text-center w-28">
+                        <svg class="w-8 h-8 text-primary-200 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        <p class="text-xs text-white font-bold">Jadwal</p>
+                        <p class="text-[10px] text-primary-300 mt-0.5">Real-time</p>
+                    </div>
+                </div>
+
+                <div class="absolute top-[30px] right-[80px] anim-float-slow" style="animation-delay:1.5s">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 text-center w-28">
+                        <svg class="w-8 h-8 text-primary-200 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+                        <p class="text-xs text-white font-bold">Kategori</p>
+                        <p class="text-[10px] text-primary-300 mt-0.5">Terorganisir</p>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-[40px] left-[60px] anim-float-fast" style="animation-delay:.8s">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 text-center w-28">
+                        <svg class="w-8 h-8 text-primary-200 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <p class="text-xs text-white font-bold">Lokasi</p>
+                        <p class="text-[10px] text-primary-300 mt-0.5">Informatif</p>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-[40px] right-[100px] anim-float" style="animation-delay:2s">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 text-center w-28">
+                        <svg class="w-8 h-8 text-primary-200 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <p class="text-xs text-white font-bold">Peserta</p>
+                        <p class="text-[10px] text-primary-300 mt-0.5">Terbuka</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Diagonal wave bottom --}}
+    <div class="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 90" fill="none" class="w-full" preserveAspectRatio="none">
+            <path d="M0 90L360 60L720 75L1080 45L1440 65V90H0Z" fill="white" opacity="0.05"/>
+            <path d="M0 90L480 55L960 70L1440 40V90H0Z" fill="white"/>
+        </svg>
+    </div>
+</section>
+
+{{-- ======== EVENTS CATALOG ======== --}}
+<section id="events" class="bg-white pt-4 pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {{-- Section header --}}
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4 pt-12">
+            <div>
+                <span class="inline-block text-primary-500 text-xs font-bold uppercase tracking-[.2em] mb-2">— Katalog</span>
+                <h2 class="text-4xl sm:text-5xl font-black text-gray-900 leading-none">
+                    Acara<br>Terbaru<span class="text-primary-500">.</span>
+                </h2>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-gray-400">
+                <span class="w-8 h-[1.5px] bg-primary-200"></span>
+                <span class="w-2 h-2 rounded-full bg-primary-400"></span>
+                <span class="font-medium">{{ $events->count() }} acara tersedia</span>
+            </div>
+        </div>
+
+        {{-- Event grid --}}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @forelse($events as $event)
+            <article class="group relative bg-white rounded-[1.5rem] border border-gray-100 hover:border-primary-200 shadow-sm hover:shadow-2xl hover:shadow-primary-100/60 transition-all duration-400 overflow-hidden hover:-translate-y-1.5">
+
+                {{-- Top accent bar --}}
+                <div class="h-[3px] bg-gradient-to-r from-primary-400 to-primary-600 w-0 group-hover:w-full transition-all duration-500"></div>
+
+                {{-- Number badge --}}
+                <div class="absolute top-4 right-4 z-10 w-9 h-9 rounded-xl bg-white/90 backdrop-blur-sm border border-gray-100 flex items-center justify-center shadow-sm">
+                    <span class="text-[11px] font-black text-primary-500">{{ str_pad($loop->index + 1, 2, '0', STR_PAD_LEFT) }}</span>
+                </div>
+
+                {{-- Poster --}}
+                <div class="overflow-hidden h-[200px] bg-gradient-to-br from-primary-50 to-primary-100">
+                    @if($event->poster)
+                        <img src="{{ asset('storage/' . $event->poster) }}" alt="{{ $event->title }}"
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    @else
+                        <div class="w-full h-full flex flex-col items-center justify-center gap-2">
+                            <svg class="w-14 h-14 text-primary-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            <span class="text-xs text-primary-300 font-semibold">Tanpa Poster</span>
+                        </div>
+                    @endif
+                </div>
+
+                {{-- Content --}}
+                <div class="p-6">
+                    <span class="inline-block px-3 py-1 rounded-full bg-primary-50 text-primary-600 text-[11px] font-bold border border-primary-100 mb-3 uppercase tracking-wide">
+                        {{ $event->category->name }}
+                    </span>
+
+                    <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary-700 transition-colors duration-200 line-clamp-2 leading-snug mb-3">
                         {{ $event->title }}
                     </h3>
 
-                    <div class="mt-3 flex flex-col gap-2">
-                        <div class="flex items-center gap-2 text-sm text-gray-500">
-                            <svg class="w-4 h-4 text-primary-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                            </svg>
+                    <div class="flex flex-col gap-1.5 text-sm text-gray-500 mb-4">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-primary-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                             <span>{{ date('d M Y', strtotime($event->event_date)) }}</span>
                         </div>
-                        <div class="flex items-center gap-2 text-sm text-gray-500">
-                            <svg class="w-4 h-4 text-primary-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                            <span>{{ $event->location }}</span>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-primary-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span class="truncate">{{ $event->location }}</span>
                         </div>
                     </div>
 
-                    <p class="mt-4 text-sm text-gray-400 leading-relaxed line-clamp-3">{{ $event->description }}</p>
+                    <p class="text-sm text-gray-400 line-clamp-2 leading-relaxed mb-5">{{ $event->description }}</p>
 
-                    <div class="mt-5 pt-5 border-t border-gray-50">
-                        <a href="/event/{{ $event->id }}" class="inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700 group/btn transition-colors duration-200">
-                            Lihat Detail Acara
-                            <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-50">
+                        <a href="/event/{{ $event->id }}" class="inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 hover:text-primary-800 transition-colors duration-200 group/link">
+                            Lihat Detail
+                            <svg class="w-4 h-4 group-hover/link:translate-x-1.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                         </a>
+                        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gray-50 text-gray-400 text-[11px] font-semibold">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            {{ $event->quota }}
+                        </span>
                     </div>
                 </div>
-            </div>
+            </article>
+
             @empty
-            <!-- Empty State -->
-            <div class="col-span-full">
-                <div class="text-center py-20 px-6">
-                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary-50 mb-6">
-                        <svg class="w-10 h-10 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                        </svg>
+            <div class="col-span-full py-28 flex flex-col items-center">
+                <div class="relative w-28 h-28 mb-8">
+                    <div class="absolute inset-0 rounded-3xl bg-primary-50 border-2 border-dashed border-primary-200"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <svg class="w-14 h-14 text-primary-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-700">Belum ada acara</h3>
-                    <p class="mt-2 text-gray-400">Belum ada acara yang dipublikasikan.</p>
                 </div>
+                <h3 class="text-2xl font-black text-gray-700">Belum Ada Acara</h3>
+                <p class="mt-2 text-gray-400 text-sm">Nantikan informasi acara terbaru dari kami.</p>
             </div>
             @endforelse
         </div>
     </div>
-</div>
+</section>
 
-<style>
-    @keyframes blob {
-        0%, 100% { transform: translate(0, 0) scale(1); }
-        33% { transform: translate(30px, -30px) scale(1.1); }
-        66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    @keyframes fade-in-up {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-blob { animation: blob 8s infinite ease-in-out; }
-    .animation-delay-2000 { animation-delay: 2s; }
-    .animation-delay-4000 { animation-delay: 4s; }
-    .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; opacity: 0; }
-    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-</style>
+{{-- ======== CTA SECTION ======== --}}
+<section class="relative overflow-hidden bg-gradient-to-r from-primary-600 to-primary-800 py-20">
+    <div class="absolute inset-0 dot-grid opacity-[0.08]"></div>
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight">
+            Ingin mengelola<br>acara sekolah?
+        </h2>
+        <p class="mt-4 text-primary-200 text-base leading-relaxed">Daftar sekarang dan mulai kelola semua kegiatan sekolah dalam satu platform.</p>
+        @guest
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a href="/register" class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white text-primary-700 font-bold text-sm hover:bg-primary-50 shadow-xl transition-all duration-200 hover:-translate-y-0.5">
+                Daftar Sekarang — Gratis
+            </a>
+            <a href="/login" class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-primary-700/50 border border-primary-500/50 text-white font-bold text-sm hover:bg-primary-700/70 transition-all duration-200">
+                Masuk
+            </a>
+        </div>
+        @else
+        <div class="mt-8">
+            <a href="/dashboard" class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white text-primary-700 font-bold text-sm hover:bg-primary-50 shadow-xl transition-all duration-200 hover:-translate-y-0.5">
+                Buka Panel Admin
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+        </div>
+        @endguest
+    </div>
+</section>
+
 @endsection
